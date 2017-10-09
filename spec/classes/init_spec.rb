@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe 'squid' do
 
-  squid_conf = <<~EOF
-    http_port 3128
-    acl localnet src 192.168.1.0/24
-    http_access allow localnet
-    http_access deny all
-  EOF
+  squid_conf = <<-EOF
+http_port 3128
+acl localnet src 192.168.1.0/24
+http_access allow localnet
+http_access deny all
+EOF
 
   on_supported_os.each do |os, facts|
 

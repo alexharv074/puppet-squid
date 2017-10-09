@@ -7,11 +7,11 @@ class squid::params {
   $ensure_service = 'running'
   $enable_service = true
 
-  case $facts['operatingsystem'] {
+  case $::operatingsystem {
 
     /^(Debian|Ubuntu)$/: {
 
-      case $facts['operatingsystemrelease'] {
+      case $::operatingsystemrelease {
 
         /^(8.*|14\.04)$/: {
           $package_name = 'squid3'

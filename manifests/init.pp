@@ -1,19 +1,14 @@
 class squid (
-
-  String[1]       $squid_conf,
-
-  Pattern[/squid.conf/] $config    = $squid::params::config,
-
-  String[1]       $config_group   = $squid::params::config_group,
-  String[1]       $config_user    = $squid::params::config_user,
-  String[1]       $daemon_group   = $squid::params::daemon_group,
-  String[1]       $daemon_user    = $squid::params::daemon_user,
-  Boolean         $enable_service = $squid::params::enable_service,
-  Enum['running', 'stopped']
-                  $ensure_service = $squid::params::ensure_service,
-  Pattern[/squid/] $package_name   = $squid::params::package_name,
-  Pattern[/squid/] $service_name   = $squid::params::service_name,
-
+  $squid_conf,
+  $config         = $squid::params::config,
+  $config_group   = $squid::params::config_group,
+  $config_user    = $squid::params::config_user,
+  $daemon_group   = $squid::params::daemon_group,
+  $daemon_user    = $squid::params::daemon_user,
+  $enable_service = $squid::params::enable_service,
+  $ensure_service = $squid::params::ensure_service,
+  $package_name   = $squid::params::package_name,
+  $service_name   = $squid::params::service_name,
 ) inherits squid::params {
 
   contain squid::install

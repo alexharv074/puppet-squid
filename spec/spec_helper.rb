@@ -3,9 +3,13 @@ require 'puppetlabs_spec_helper/module_spec_helper'
 require 'rspec-puppet-facts'
 include RspecPuppetFacts
 
+fixture_path = File.join(File.dirname(File.expand_path(__FILE__)), 'fixtures')
+
 RSpec.configure do |c|
   c.formatter = :documentation
   c.tty       = true
+
+  c.manifest = File.join(fixture_path, 'manifests', 'site.pp')
 
   default_facts = {
     puppetversion: Puppet.version,
