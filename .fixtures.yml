@@ -1,0 +1,4 @@
+fixtures:
+  repositories:
+  symlinks:
+   "squid": "#{source_dir}"
