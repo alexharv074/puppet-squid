@@ -4,7 +4,7 @@
 
 ## Description
 
-A simple Puppet module for configuring the squid caching service.
+A simple Puppet module for configuring the squid caching service. This module is simpler than the Approved Squid module, in that it allows the Squid Configuration file to provided as a stream of text, in Squid's own language.
 
 ## Usage
 
