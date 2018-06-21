@@ -39,18 +39,6 @@ describe 'squid' do
 
         case facts[:operatingsystem]
 
-        when 'Debian'
-          context 'when on Debian' do
-            it { is_expected.to contain_package('squid3').with_ensure('present') }
-            it { is_expected.to contain_service('squid3').with_ensure('running') }
-            it { is_expected.to contain_file('/etc/squid3/squid.conf').with_group('root') }
-            it { is_expected.to contain_file('/etc/squid3/squid.conf').with_owner('root') }
-
-            it 'squid.conf should contain content' do
-              is_expected.to contain_file('/etc/squid3/squid.conf').with_content(squid_conf)
-            end
-          end
-
         when 'Ubuntu'
 
           case facts[:operatingsystemrelease]
@@ -78,14 +66,6 @@ describe 'squid' do
             it { is_expected.to contain_service('squid').with_ensure('running') }
             it { is_expected.to contain_file('/usr/local/etc/squid/squid.conf').with_group('squid') }
             it { is_expected.to contain_file('/usr/local/etc/squid/squid.conf').with_owner('root') }
-          end
-
-        else
-          context 'when on any other supported OS' do
-            it { is_expected.to contain_package('squid').with_ensure('present') }
-            it { is_expected.to contain_service('squid').with_ensure('running') }
-            it { is_expected.to contain_file('/etc/squid/squid.conf').with_group('squid') }
-            it { is_expected.to contain_file('/etc/squid/squid.conf').with_owner('root') }
           end
         end
       end

@@ -1,9 +1,14 @@
+# THIS FILE IS CENTRALLY MANAGED BY sync_spec.rb!
+# DO NOT EDIT IT HERE!
+
 source 'https://rubygems.org'
 
 group :tests do
   gem 'puppetlabs_spec_helper', :require => false
-  gem 'metadata-json-lint', :require => false
+  gem 'rspec-puppet-utils', :require => false
   gem 'rspec-puppet-facts', :require => false
+  gem 'metadata-json-lint', :require => false
+  gem 'puppet-blacksmith',  :require => false
 end
 
 group :system_tests do
@@ -19,9 +24,3 @@ if puppetversion = ENV['PUPPET_GEM_VERSION']
 else
   gem 'puppet', :require => false
 end
-
-# https://tickets.puppetlabs.com/browse/PUP-6551
-#
-# json_pure 2.0.2 added a requirement on ruby >= 2. We pin to json_pure 2.0.1
-# if using ruby 1.x for puppet 3.2 through puppet 3.4
-gem 'json_pure', '<=2.0.1', :require => false if RUBY_VERSION =~ /^1\./
